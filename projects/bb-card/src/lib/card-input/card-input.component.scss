@@ -1,0 +1,62 @@
+:host {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+  background: var(--card-input-background, transparent);
+
+  --color: #000;
+  --color-invalid: red;
+  --card-branding-width: 60px; // Sets the width of the card branding
+  --padding-right: 0px; // padding from the end
+  --padding-left: 0px; // padding from the start
+  --padding-top: 0px; // padding from the top
+  --padding-bottom: 0px; // padding from the bottom
+
+  &.ng-invalid {
+    input {
+      color: var(--color-invalid);
+    }
+  }
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding-right : calc(var(--card-branding-width) + var(--padding-right));
+}
+
+input {
+  letter-spacing: 1.5px;
+  outline: none;
+  border: none;
+  flex: 1;
+  z-index: 2;
+  color: var(--color);
+  background: transparent;
+}
+
+img {
+  position: absolute;
+  right: var(--padding-right);
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 60px;
+  z-index: 1;
+
+  &[src=''] {
+    width: unset;
+  }
+}
+
+.placeholder {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  font-weight: normal;
+}
