@@ -29,9 +29,9 @@ export class CardInputComponent implements OnInit, ControlValueAccessor, Validat
 
   public cardType: cardType = cardType.unknown;
   public cardBranding = new Map<cardType, string>([
-    [cardType.mastercard, './card-icons/card-brands/mastercard.svg'],
-    [cardType.americanExpress, './card-icons/card-brands/american-express.svg'],
-    [cardType.visa, './card-icons/card-brands/visa.svg']
+    [cardType.mastercard, 'assets/card-icons/card-brands/mastercard.svg'],
+    [cardType.americanExpress, 'assets/card-icons/card-brands/american-express.svg'],
+    [cardType.visa, 'assets/card-icons/card-brands/visa.svg']
   ]);
   
   public touched: boolean = false;
