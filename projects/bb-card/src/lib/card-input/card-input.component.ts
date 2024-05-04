@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms';
 import { cardType } from '../card-type.enum';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'bb-card-input',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './card-input.component.html',
   styleUrls: ['./card-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,14 +27,14 @@ export class CardInputComponent implements OnInit, ControlValueAccessor, Validat
   @ViewChild('inputElem') inputElem?: ElementRef;
 
   @Input() placeholder: string = 'Card Number';
-  @Output() updateCardType: EventEmitter<string> = new EventEmitter<string>();
+  @Output() updateCardType: EventEmitter<cardType> = new EventEmitter<cardType>();
 
   public cardType: cardType = cardType.unknown;
-  public cardBranding = new Map<cardType, string>([
+  /* public cardBranding = new Map<cardType, string>([
     [cardType.mastercard, 'assets/card-icons/card-brands/mastercard.svg'],
     [cardType.americanExpress, 'assets/card-icons/card-brands/american-express.svg'],
     [cardType.visa, 'assets/card-icons/card-brands/visa.svg']
-  ]);
+  ]); */
   
   public touched: boolean = false;
   public disabled: boolean = false;
@@ -185,7 +187,12 @@ export class CardInputComponent implements OnInit, ControlValueAccessor, Validat
       this.cardType = cardType.americanExpress;
       this.cardMask = this.amExpressMask;
       this.cardLength = 15;
-    } else {
+    }else if(this.isRuPay(this.value)){
+      this.cardType = cardType.rupay;
+      this.cardMask = this.mask4;
+      this.cardLength = 16;
+    }
+     else {
       this.cardType = cardType.unknown;
       this.cardMask = this.mask4;
       this.cardLength = 16;

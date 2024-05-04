@@ -1,7 +1,8 @@
 export enum cardType {
-    unknown = '',
-    mastercard = 'mastercard',
-    americanExpress = 'americanExpress',
-    visa = 'visa'
+    mastercard,
+    americanExpress,
+    visa,
+    rupay,
+    unknown 
 }
   

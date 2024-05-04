@@ -50,6 +50,22 @@ img {
   }
 }
 
+.card-brand-wrapper {
+  position: absolute;
+  right: var(--padding-right);
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 60px;
+  z-index: 1;
+
+  background-image: url(assets/card-brand-sprite.png);
+  background-size: 100% auto;
+
+  canvas {
+    width: 100%;
+  }
+}
+
 .placeholder {
   position: absolute;
   top: 50%;
