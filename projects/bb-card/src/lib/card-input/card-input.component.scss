@@ -13,7 +13,9 @@
   --padding-top: 0px; // padding from the top
   --padding-bottom: 0px; // padding from the bottom
 
-  &.ng-invalid {
+  --card-brands-img-width: 60px;
+
+  &.ng-invalid.ng-touched {
     input {
       color: var(--color-invalid);
     }
@@ -37,25 +39,12 @@ input {
   background: transparent;
 }
 
-img {
-  position: absolute;
-  right: var(--padding-right);
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 60px;
-  z-index: 1;
-
-  &[src=''] {
-    width: unset;
-  }
-}
-
 .card-brand-wrapper {
   position: absolute;
   right: var(--padding-right);
   top: 50%;
   transform: translateY(-50%);
-  max-width: 60px;
+  width: var(--card-brands-img-width);
   z-index: 1;
 
   background-image: url(assets/card-brand-sprite.png);
