@@ -1,24 +1,52 @@
 # BbCard
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+It is an angular component-library (of course)
 
-## Code scaffolding
+## Components
+CardInputComponent
+CardExpiryComponent
 
 Run `ng generate component component-name --project bb-card` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project bb-card`.
 > Note: Don't forget to add `--project bb-card` or else it will be added to the default project in your `angular.json` file. 
 
-## Build
+## Usage
+### CardInputComponent
+import {CardInputComponent} from 'bb-card'
+#### Template
+`<bb-card-input>\</bb-card-input>`
+#### Inputs
+|name|description|
+|----|-----------|
+|placeholder|The placeholder text for the form control|
 
-Run `ng build bb-card` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### Outputs
+| Name | Description |
+|------|--------------|
+| updateCardType | emitted when a card type is detected as the user starts entering the card number |
 
-## Publishing
+#### Style customization (css variables)
+| Name | Description |
+|------|--------------|
+| --color | font color of the component |
+| --padding-right | right padding(This is important because the position of the card branding icons uses this value) |
+| --padding-left | Left padding|
+| --padding-bottom | bottom padding |
+| --padding-top | Top padding |
 
-After building your library with `ng build bb-card`, go to the dist folder `cd dist/bb-card` and run `npm publish`.
 
-## Running unit tests
+### CardExpiryComponent
+import {CardExpiryComponent} from 'bb-card'
+import {CardExpiry} from 'bb-card' (Optional)
+> NB: CardExpiry is just an interface with a month and year property. you can import this to use with a typed form
+#### Template
+`<bb-card-input>\</bb-card-input>`
+#### Inputs
+|name|description|
+|----|-----------|
+|placeholder|The placeholder text for the form control|
 
-Run `ng test bb-card` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### Style customization (css variables)
+| Name | Description |
+|------|--------------|
+| --color | font color of the component |

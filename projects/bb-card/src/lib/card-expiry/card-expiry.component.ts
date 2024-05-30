@@ -1,12 +1,13 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
 
-interface CardDetails {
+export interface CardExpiry {
   month: string;
   year: string;
 }
 @Component({
-  selector: 'app-card-expiry',
+  selector: 'bb-card-expiry',
+  standalone: true,
   templateUrl: './card-expiry.component.html',
   styleUrls: ['./card-expiry.component.scss'],
   providers: [
@@ -23,11 +24,11 @@ interface CardDetails {
   ],
 })
 export class CardExpiryComponent implements OnInit, ControlValueAccessor {
-  @ViewChild('input') input: ElementRef;
+  @ViewChild('input') input: ElementRef | undefined;
 
   @Input() placeholder: string = 'MM / YY';
 
-  public value: CardDetails = { month: '', year: '' };
+  public value: CardExpiry = { month: '', year: '' };
   private disabled: boolean = false;
   private isDelete: boolean = false;
 
@@ -44,7 +45,7 @@ export class CardExpiryComponent implements OnInit, ControlValueAccessor {
   public onTouched(): any {}
 
   /** */
-  public onChange(card: CardDetails): any {}
+  public onChange(card: CardExpiry): any {}
 
   /** */
   public registerOnChange(fn: any): void {
@@ -74,7 +75,7 @@ export class CardExpiryComponent implements OnInit, ControlValueAccessor {
   }
 
   /** */
-  public writeValue(expiry: CardDetails): void {
+  public writeValue(expiry: CardExpiry): void {
     this.value.month = expiry.month;
     this.value.year = expiry.year.slice(-2);
     this._value = this.value.month.concat(this.value.year);
@@ -105,6 +106,7 @@ export class CardExpiryComponent implements OnInit, ControlValueAccessor {
 
   /** */
   public onInput(): void {
+    if(!this.input) return;
     this.lastCaretPos = this.input.nativeElement.selectionStart;
     const arr = this.input.nativeElement.value.replace(/\s/g, '').split('/');
     let val = arr[0];
@@ -133,6 +135,7 @@ export class CardExpiryComponent implements OnInit, ControlValueAccessor {
 
   /** */
   public checkYear(): void {
+    if(!this.input) return;
     const arr = this.input.nativeElement.value.replace(/\s/g, '').split('/');
     if (arr.length < 2) {
       return;
@@ -147,6 +150,7 @@ export class CardExpiryComponent implements OnInit, ControlValueAccessor {
 
   /** */
   public updateValue(): void {
+    if(!this.input) return;
     let val = '';
     for (let i = 0; i < this._value.length; i++) {
       val += this._value[i];

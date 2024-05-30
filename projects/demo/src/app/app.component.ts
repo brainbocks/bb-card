@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import {CardInputComponent} from 'bb-card';
+import {CardInputComponent, CardExpiryComponent} from 'bb-card';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, CardInputComponent, ReactiveFormsModule],
+  imports: [CommonModule, RouterOutlet, CardInputComponent, CardExpiryComponent, ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

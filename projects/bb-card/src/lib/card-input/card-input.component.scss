@@ -27,6 +27,9 @@
   display: flex;
   width: 100%;
   padding-right : calc(var(--card-branding-width) + var(--padding-right));
+  padding-left: var(--padding-left);
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
 }
 
 input {
