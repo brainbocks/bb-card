@@ -13,6 +13,14 @@ Run `ng generate component component-name --project bb-card` to generate a new c
 ## Usage
 ### CardInputComponent
 import {CardInputComponent} from 'bb-card'
+Add the following to your build assets
+##
+<tab><tab>  {
+                "glob": "**/*",
+                "input": "./node_modules/bb-card/assets",
+                "output": "/assets/"
+            }
+
 #### Template
 `<bb-card-input>\</bb-card-input>`
 #### Inputs
