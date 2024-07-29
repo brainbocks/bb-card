@@ -1,0 +1,20 @@
+:host {
+    --cell-borders: 2px solid #aaa;
+    --cell-spacing: 8px;
+    --cell-padding: 4px 0;
+}
+
+input {
+    text-align: center;
+    /*Remove user agent padding*/
+    padding-block: 0;
+    padding-inline: 0;
+    outline: none;
+    border: var(--cell-borders);
+    padding: var(--cell-padding);
+    
+
+    &:not(:first-child){
+        margin-left: var(--cell-spacing);
+    }
+}

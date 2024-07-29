@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/bb-card",
       "sourceRoot": "projects/bb-card/src",
-      "prefix": "lib",
+      "prefix": "bb",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -64,7 +64,7 @@
               {
                 "glob": "**/*",
                 "input": "./dist/bb-card/assets",
-                "output": "/assets/"
+                "output": "/assets/bb-card/"
               }
             ],
             "styles": [

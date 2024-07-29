@@ -1,6 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
-
 import { CardInputComponent } from './card-input.component';
 
 describe('CardInputComponent', () => {
@@ -10,7 +8,7 @@ describe('CardInputComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CardInputComponent],
-      imports: [IonicModule.forRoot()],
+      imports: [],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CardInputComponent);

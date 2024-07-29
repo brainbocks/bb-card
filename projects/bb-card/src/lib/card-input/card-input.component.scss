@@ -8,12 +8,20 @@
   --color: #000;
   --color-invalid: red;
   --card-branding-width: 60px; // Sets the width of the card branding
-  --padding-right: 0px; // padding from the end
-  --padding-left: 0px; // padding from the start
-  --padding-top: 0px; // padding from the top
-  --padding-bottom: 0px; // padding from the bottom
+  --padding-right: 4px; // padding from the end
+  --padding-left: 4px; // padding from the start
+  --padding-top: 6px; // padding from the top
+  --padding-bottom: 6px; // padding from the bottom
 
   --card-brands-img-width: 60px;
+
+  border: 1px solid #aaa;
+  border-radius: 4px;
+
+  &:focus {
+    border: 1px solid #000;
+  }
+
 
   &.ng-invalid.ng-touched {
     input {
@@ -36,10 +44,10 @@ input {
   letter-spacing: 1.5px;
   outline: none;
   border: none;
-  flex: 1;
   z-index: 2;
   color: var(--color);
   background: transparent;
+  display: inline-block;
 }
 
 .card-brand-wrapper {
@@ -49,12 +57,14 @@ input {
   transform: translateY(-50%);
   width: var(--card-brands-img-width);
   z-index: 1;
+  display: block;
 
-  background-image: url(assets/card-brand-sprite.png);
+  background-image: url(assets/bb-card/card-brand-sprite.png);
   background-size: 100% auto;
 
   canvas {
     width: 100%;
+    display: block;
   }
 }
 

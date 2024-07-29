@@ -1,9 +1,10 @@
 :host {
-  display: flex;
+  display: inline-block;
   align-items: center;
   position: relative;
-  border: 1px solid black;
-  width: 64px;
+  border: 1px solid #aaa;
+  padding: 4px 0;
+  --text-alignment: center;
 
   --color: #000;
 
@@ -16,10 +17,9 @@
 
 input {
   position: relative;
-  display: flex;
-  width: 100%;
   letter-spacing: 1.5px;
   outline: none;
   border: none;
   color: var(--color);
+  text-align: var(--text-alignment);
 }
